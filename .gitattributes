@@ -5,3 +5,4 @@
 *.ruby linguist-detectable=false
 *.starlark linguist-detectable=false
 *.css linguist-detectable=false
+*.objective-c linguist-detectable=false
