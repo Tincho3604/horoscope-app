@@ -7,8 +7,8 @@ import TransGender from '../../Assets/gen-3.png';
 const ImageGender = () => {
   const pathGenderImages = [
     {name: 'Male', path: Male},
-    {name: 'Famele', path: Famele},
     {name: 'Transgender', path: TransGender},
+    {name: 'Famele', path: Famele},
   ];
   return (
     <>
