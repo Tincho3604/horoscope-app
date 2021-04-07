@@ -11,7 +11,10 @@ const Home = ({navigation}) => {
   return (
     <View style={styles.mainHomeContainer}>
       <Image source={dama} style={styles.damaImg} />
-      <CustomButton title={titleButton} changeScreen={onPressHandler} />
+      <CustomButton
+        titleCustomButton={titleButton}
+        changeScreen={onPressHandler}
+      />
     </View>
   );
 };
