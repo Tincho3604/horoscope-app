@@ -8,10 +8,12 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   formStyle: {
-    flex: 2,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    height: '100%',
   },
   formInput: {
-    height: 62,
+    height: 80,
     fontSize: 20,
     opacity: 0.6,
     color: '#0e5090',

@@ -14,7 +14,7 @@ const FormData = ({navigation, route}) => {
         <StepBar titleStepBar={'Ingresa tus datos'} />
       </View>
       <View style={styles.FormSecondaryContainer}>
-        <Form />
+        <Form navigation={navigation} />
       </View>
       <View />
     </View>

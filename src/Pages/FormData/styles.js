@@ -5,13 +5,12 @@ export default StyleSheet.create({
     flex: 1,
   },
   FormPrimaryContainer: {
-    flex: 1,
+    flex: 2,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '100%',
   },
   FormSecondaryContainer: {
-    flex: 2,
+    flex: 4,
   },
 });

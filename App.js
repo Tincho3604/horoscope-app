@@ -25,19 +25,6 @@ const App = () => {
             },
           }}>
           <Stack.Screen
-            name="Form"
-            component={FormData}
-            options={{title: 'Tus Datos'}}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </SafeAreaProvider>
-  );
-};
-
-export default App;
-
-/*     <Stack.Screen
             name="Home"
             component={Home}
             options={{
@@ -49,5 +36,15 @@ export default App;
             component={Gender}
             options={{title: 'Tu Género'}}
           />
+          <Stack.Screen
+            name="Form"
+            component={FormData}
+            options={{title: 'Tus Datos'}}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
+  );
+};
 
-*/
+export default App;

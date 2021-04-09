@@ -3,15 +3,11 @@ import {View, ScrollView} from 'react-native';
 import {useForm} from 'react-hook-form';
 import styles from './styles';
 import CustomButton from '../../Components/CustomButton';
-import {
-  titleButton,
-  infoFields,
-  formatDateFunction,
-} from '../../Constants/constants';
+import {infoFields} from '../../Constants/constants';
 import Field from '../../Components/Field';
-const Form = () => {
-  const [infoDateValue, setInfoDateValue] = useState('');
-
+const Form = ({navigation}) => {
+  const [dateInfo, setDateInfo] = useState('');
+  const onPressHandler = () => navigation.navigate('Gender');
   const {
     control,
     handleSubmit,
@@ -21,12 +17,12 @@ const Form = () => {
   } = useForm();
 
   const onSubmit = data => {
-    const dataForm = {...data, Date: infoDateValue};
+    const dataForm = {...data, Date: dateInfo};
     console.log(dataForm);
     reset();
   };
   const recover = e => {
-    setInfoDateValue(e);
+    setDateInfo(e);
   };
   return (
     <>
@@ -50,17 +46,18 @@ const Form = () => {
               />
             );
           })}
-        </View>
-        <View style={styles.formButtons}>
-          <CustomButton
-            titleCustomButton={'Volver'}
-            style={styles.backButton}
-          />
-          <CustomButton
-            titleCustomButton={'Continuar'}
-            onPressAction={handleSubmit(onSubmit)}
-            style={styles.followButton}
-          />
+          <View style={styles.formButtons}>
+            <CustomButton
+              titleCustomButton={'Volver'}
+              style={styles.backButton}
+              onPressAction={onPressHandler}
+            />
+            <CustomButton
+              titleCustomButton={'Continuar'}
+              onPressAction={handleSubmit(onSubmit)}
+              style={styles.followButton}
+            />
+          </View>
         </View>
       </ScrollView>
     </>
