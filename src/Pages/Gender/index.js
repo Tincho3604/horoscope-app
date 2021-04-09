@@ -6,7 +6,8 @@ import ImageGender from '../../Components/ImageGender';
 import CustomButton from '../../Components/CustomButton';
 import {string} from 'prop-types';
 
-const GenderPage = ({style, route}) => {
+const Gender = ({style, route, navigation}) => {
+  const onPressHandler = () => navigation.navigate('Form');
   return (
     <View style={[styles.mainGenderPage, style]}>
       <View style={styles.primaryContainer}>
@@ -16,14 +17,17 @@ const GenderPage = ({style, route}) => {
         <ImageGender />
       </View>
       <View style={styles.buttonGenderPage}>
-        <CustomButton titleCustomButton={'Ingresar'} />
+        <CustomButton
+          titleCustomButton={'Ingresar'}
+          onPressAction={onPressHandler}
+        />
       </View>
     </View>
   );
 };
 
-GenderPage.proptype = {
+Gender.proptype = {
   style: ViewPropTypes.style,
 };
 
-export default GenderPage;
+export default Gender;

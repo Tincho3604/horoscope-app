@@ -6,14 +6,14 @@ import {titleButton} from '../../Constants/constants';
 const dama = require('../../Assets/dama.png');
 
 const Home = ({navigation}) => {
-  const onPressHandler = () => navigation.navigate('GenderPage');
+  const onPressHandler = () => navigation.navigate('Gender');
 
   return (
     <View style={styles.mainHomeContainer}>
       <Image source={dama} style={styles.damaImg} />
       <CustomButton
         titleCustomButton={titleButton}
-        changeScreen={onPressHandler}
+        onPressAction={onPressHandler}
       />
     </View>
   );

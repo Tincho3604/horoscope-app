@@ -4,7 +4,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import Home from './src/Pages/Home/index.js';
-import GenderPage from './src/Pages/GenderPage';
+import Gender from './src/Pages/Gender';
+import FormData from './src/Pages/FormData';
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -24,16 +25,9 @@ const App = () => {
             },
           }}>
           <Stack.Screen
-            name="Home"
-            component={Home}
-            options={{
-              header: () => null,
-            }}
-          />
-          <Stack.Screen
-            name="GenderPage"
-            component={GenderPage}
-            options={{title: 'Tu Género'}}
+            name="Form"
+            component={FormData}
+            options={{title: 'Tus Datos'}}
           />
         </Stack.Navigator>
       </NavigationContainer>
@@ -42,3 +36,18 @@ const App = () => {
 };
 
 export default App;
+
+/*     <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{
+              header: () => null,
+            }}
+          />
+          <Stack.Screen
+            name="Gender"
+            component={Gender}
+            options={{title: 'Tu Género'}}
+          />
+
+*/

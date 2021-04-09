@@ -1,21 +1,24 @@
-import React from 'react';
-import {View, Text, ViewPropTypes} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, Text, ViewPropTypes, Button} from 'react-native';
 import styles from './styles';
 import Badge from '../../Components/Badge';
-import {test, BadgeEmpty} from '../../Constants/constants';
+import {pagesName, BadgeEmpty} from '../../Constants/constants';
 import {string} from 'prop-types';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const StepBar = ({titleStepBar, screen, style}) => {
+  const [previousPage, setPreviousPage] = useState([
+    {
+      page: '',
+    },
+  ]);
+
+  useEffect(() => {});
   return (
     <View style={[styles.main, style]}>
       <View style={styles.stepBarStyle}>
-        {test.map((item, index) => {
-          return (
-            <Badge
-              key={index}
-              style={screen === item.name ? null : BadgeEmpty}
-            />
-          );
+        {pagesName.map((item, index) => {
+          return <Badge key={index} style={BadgeEmpty} />;
         })}
         <View style={styles.line} />
       </View>

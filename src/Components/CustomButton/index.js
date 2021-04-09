@@ -3,12 +3,12 @@ import {Text, TouchableOpacity, View, ViewPropTypes} from 'react-native';
 import styles from './styles';
 import {string, func} from 'prop-types';
 
-const CustomButton = ({titleCustomButton, style, changeScreen}) => {
+const CustomButton = ({titleCustomButton, style, onPressAction}) => {
   return (
     <View>
       <TouchableOpacity
-        style={[style, styles.customButtonStyle]}
-        onPress={changeScreen}>
+        style={[styles.customButtonStyle, style]}
+        onPress={onPressAction}>
         <Text style={styles.button}>{titleCustomButton}</Text>
       </TouchableOpacity>
     </View>
@@ -18,7 +18,7 @@ const CustomButton = ({titleCustomButton, style, changeScreen}) => {
 CustomButton.propTypes = {
   titleCustomButton: string,
   style: ViewPropTypes.style,
-  changeScreen: func,
+  onPressAction: func,
 };
 
 export default CustomButton;
