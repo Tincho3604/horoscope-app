@@ -1,12 +1,16 @@
 import React, {useState, useRef} from 'react';
 import {View, ScrollView} from 'react-native';
-import {useForm} from 'react-hook-form';
 import styles from './styles';
 import CustomButton from '../../Components/CustomButton';
-import {infoFields, validationFormAlert} from '../../Constants/constants';
+import {
+  infoFields,
+  validateFieldEmail,
+  sweetAlert,
+  validateFieldName,
+  validateDate,
+} from '../../Constants/constants';
 import {Formik} from 'formik';
 import Field from '../../Components/Field';
-import SweetAlert from 'react-native-sweet-alert';
 
 const Form = ({navigation}) => {
   const [dateInfo, setDateInfo] = useState('');
@@ -18,17 +22,15 @@ const Form = ({navigation}) => {
       <ScrollView style={{flex: 1}}>
         <Formik
           onSubmit={values => {
-            const objInfo = {...values, dateInfo};
-            SweetAlert.showAlertWithOptions({
-              title: 'Form complete succesfully!',
-              subTitle: '',
-              confirmButtonTitle: 'OK',
-              confirmButtonColor: '#000',
-              otherButtonTitle: 'Cancel',
-              otherButtonColor: '#dedede',
-              style: 'success',
-              cancellable: true,
-            });
+            const objInfo = {...values, Date: dateInfo};
+            console.log(objInfo);
+            if (
+              validateFieldEmail(values) &&
+              validateFieldName(values) &&
+              validateDate(objInfo)
+            ) {
+              sweetAlert('Form complete succesfully!', '', 'success');
+            }
           }}
           initialValues={{Email: ''}}>
           {({
@@ -77,3 +79,9 @@ const Form = ({navigation}) => {
 };
 
 export default Form;
+
+
+/*
+
+           
+            */

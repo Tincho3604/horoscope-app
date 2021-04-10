@@ -23,7 +23,6 @@ const Field = ({
     recover(value);
     setInfoDateValue(value);
   };
-
   return (
     <>
       <View style={styles.test}>
@@ -42,6 +41,7 @@ const Field = ({
         {name === 'Date' && <DateCustomPicker showData={showDate} />}
       </View>
     </>
+    
   );
 };
 
