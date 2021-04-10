@@ -41,7 +41,6 @@ const Field = ({
         {name === 'Date' && <DateCustomPicker showData={showDate} />}
       </View>
     </>
-    
   );
 };
 

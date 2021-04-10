@@ -25,4 +25,5 @@ export default StyleSheet.create({
   followButton: {
     width: 150,
   },
+  scrollStyle: {flex: 1},
 });

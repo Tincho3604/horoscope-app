@@ -1,5 +1,22 @@
 import moment from 'moment';
 import SweetAlert from 'react-native-sweet-alert';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+// OBJECTS
+export const arraySignsInfo = [
+  {name: 'Aquarium', ranges: ['20/1', '18/2']},
+  {name: 'Pisces', ranges: ['19/2', '20/3']},
+  {name: 'Aries', ranges: ['21/3', '19/4']},
+  {name: 'Taurus', ranges: ['20/4', '21/5']},
+  {name: 'Gemini', ranges: ['21/5', '20/6']},
+  {name: 'Cancer', ranges: ['21/6', '22/7']},
+  {name: 'Leo', ranges: ['23/7', '22/8']},
+  {name: 'Virgo', ranges: ['23/8', '22/9']},
+  {name: 'Libra', ranges: ['23/9', '22/10']},
+  {name: 'Scorpio', ranges: ['23/10', '21/11']},
+  {name: 'Sagittarius', ranges: ['22/11', '21/12']},
+  {name: 'Capricorn', ranges: ['22/12', '19/1']},
+];
 
 // STRINGS
 export const titleButton = 'Ingresar';
@@ -64,7 +81,7 @@ export const sweetAlert = (title, subtitle, status) => {
   });
 };
 
-export const formatDateFunction = date => moment(date).format('L');
+export const formatDateFunction = date => moment(date).format('D/M/YYYY');
 
 export const validateEmail = value => {
   return [
@@ -112,4 +129,79 @@ export const validateDate = value => {
   } else {
     return true;
   }
+};
+
+export const storeGender = async value => {
+  try {
+    await AsyncStorage.setItem('gender', value);
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const getGender = () => {
+  try {
+    AsyncStorage.getItem('gender').then(res => {
+      return res;
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const storeDataUser = async value => {
+  try {
+    const jsonValue = JSON.stringify(value);
+    await AsyncStorage.setItem('userInfo', jsonValue);
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const getDataUser = () => {
+  try {
+    AsyncStorage.getItem('userInfo').then(res => {
+      const data = JSON.parse(res);
+      return data;
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const inRange = value => {
+  let day = parseInt(value.split('/')[0]);
+  let mounth = parseInt(value.split('/')[1]);
+
+  const rango1 = arraySignsInfo.filter(
+    item => parseInt(item.ranges[1].split('/')[1]) === mounth,
+  );
+  const rango2 = arraySignsInfo.filter(
+    item => parseInt(item.ranges[0].split('/')[1]) === mounth,
+  );
+  const final = [rango1[0], rango2[0]];
+  if (parseInt(final[0].ranges[1].split('/')[0]) > day) {
+    return final[0].name;
+  } else {
+    return final[1].name;
+  }
+};
+
+function daysInMounth(mes, año) {
+  return new Date(año, mes, 0).getDate();
+}
+
+export const calculateRemainingDays = (birthMon, currentMon, currentYear) => {
+  let suma = 0;
+  console.log(birthMon, currentMon);
+  if (currentMon < birthMon) {
+    for (let i = currentMon; i < birthMon; i++) {
+      suma += daysInMounth(i, currentYear);
+    }
+  } else if (currentMon > birthMon) {
+    for (let i = currentMon; i < 12 - currentMon; i++) {
+      suma += daysInMounth(i, currentYear);
+    }
+  }
+  return suma;
 };

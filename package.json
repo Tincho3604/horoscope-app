@@ -24,6 +24,7 @@
     "react-hook-form": "^7.0.4",
     "react-hook-form-input": "^1.1.10",
     "react-native": "0.64.0",
+    "react-native-axios": "^0.17.1",
     "react-native-date-picker": "^3.2.10",
     "react-native-elements": "^3.3.2",
     "react-native-gesture-handler": "^1.10.3",

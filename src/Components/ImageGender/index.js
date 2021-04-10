@@ -4,6 +4,7 @@ import styles from './styles';
 import Male from '../../Assets/gen-1.png';
 import Famele from '../../Assets/gen-2.png';
 import TransGender from '../../Assets/gen-3.png';
+import {storeGender} from '../../Constants/constants';
 const ImageGender = () => {
   const pathGenderImages = [
     {name: 'Male', path: Male},
@@ -14,7 +15,7 @@ const ImageGender = () => {
     <>
       {pathGenderImages.map((item, index) => {
         return (
-          <TouchableOpacity key={index}>
+          <TouchableOpacity key={index} onPress={() => storeGender(item.name)}>
             <Image source={item.path} style={styles.imgContainer} />
           </TouchableOpacity>
         );

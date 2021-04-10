@@ -6,6 +6,7 @@ import React from 'react';
 import Home from './src/Pages/Home/index.js';
 import Gender from './src/Pages/Gender';
 import FormData from './src/Pages/FormData';
+import HoroscopeData from './src/Pages/HoroscopeData';
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -25,20 +26,6 @@ const App = () => {
             },
           }}>
           <Stack.Screen
-            name="Form"
-            component={FormData}
-            options={{title: 'Tus Datos'}}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </SafeAreaProvider>
-  );
-};
-
-export default App;
-
-/*
-  <Stack.Screen
             name="Home"
             component={Home}
             options={{
@@ -50,4 +37,20 @@ export default App;
             component={Gender}
             options={{title: 'Tu Género'}}
           />
-*/
+          <Stack.Screen
+            name="Form"
+            component={FormData}
+            options={{title: 'Tus Datos'}}
+          />
+          <Stack.Screen
+            name="Horoscope"
+            component={HoroscopeData}
+            options={{title: 'Tu Horóscopo'}}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
+  );
+};
+
+export default App;
