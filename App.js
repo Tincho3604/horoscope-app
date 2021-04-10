@@ -25,18 +25,6 @@ const App = () => {
             },
           }}>
           <Stack.Screen
-            name="Home"
-            component={Home}
-            options={{
-              header: () => null,
-            }}
-          />
-          <Stack.Screen
-            name="Gender"
-            component={Gender}
-            options={{title: 'Tu Género'}}
-          />
-          <Stack.Screen
             name="Form"
             component={FormData}
             options={{title: 'Tus Datos'}}
@@ -48,3 +36,18 @@ const App = () => {
 };
 
 export default App;
+
+/*
+  <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{
+              header: () => null,
+            }}
+          />
+          <Stack.Screen
+            name="Gender"
+            component={Gender}
+            options={{title: 'Tu Género'}}
+          />
+*/

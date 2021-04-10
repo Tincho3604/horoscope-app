@@ -3,56 +3,43 @@ import {Text, View, TextInput} from 'react-native';
 import {Controller} from 'react-hook-form';
 import DateCustomPicker from '../../Components/DateCustomPicker';
 import {formatDateFunction} from '../../Constants/constants';
-import {useController} from 'react-hook-form';
+import SweetAlert from 'react-native-sweet-alert';
 import styles from './styles';
 
 const Field = ({
-  control,
-  errors,
   placeHolder,
   name,
-  defaultValue,
-  infoError,
-  rules,
   styleInput,
   recover,
-  getValues,
   editable,
+  onBlur,
+  onChangeText,
+  values,
 }) => {
   const [infoDateValue, setInfoDateValue] = useState('');
 
   const showDate = e => {
-    const valor = formatDateFunction(e);
-    recover(valor);
-    setInfoDateValue(valor);
+    const value = formatDateFunction(e);
+    recover(value);
+    setInfoDateValue(value);
   };
+
   return (
     <>
-      <View>
-        <Controller
-          control={control}
-          render={({field: {onChange, onBlur, value}}) => {
-            return (
-              <View style={styles.test}>
-                <TextInput
-                  style={styleInput}
-                  onBlur={onBlur}
-                  placeholder={placeHolder}
-                  placeholderTextColor="#0e5090"
-                  onChangeText={info => onChange(info)}
-                  maxLength={20}
-                  value={name === 'Date' ? (value = infoDateValue) : value}
-                  editable={editable}
-                />
-                {name === 'Date' && <DateCustomPicker showData={showDate} />}
-              </View>
-            );
-          }}
+      <View style={styles.test}>
+        <TextInput
+          style={styleInput}
+          onBlur={onBlur}
+          onChangeText={onChangeText}
+          placeholder={placeHolder}
+          placeholderTextColor="#0e5090"
+          maxLength={20}
+          values={values}
+          defaultValue={infoDateValue}
           name={name}
-          rules={rules}
-          defaultValue={defaultValue}
+          editable={editable}
         />
-        {errors?.name && <Text>{infoError}</Text>}
+        {name === 'Date' && <DateCustomPicker showData={showDate} />}
       </View>
     </>
   );
