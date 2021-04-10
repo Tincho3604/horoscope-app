@@ -1,4 +1,5 @@
 import moment from 'moment';
+import SweetAlert from 'react-native-sweet-alert';
 
 // STRINGS
 export const titleButton = 'Ingresar';
@@ -24,17 +25,17 @@ export const infoFields = [
   {
     name: 'Nombre',
     placeHolder: 'Nombre:',
-    infoError: 'El campo nombre es obligatorio',
     defaultValue: '',
-    rules: {required: true},
+    rules: {required: 'El campo nombre es obligatorio'},
+    initialValues: {Nombre: ''},
     editable: true,
   },
   {
     name: 'Email',
     placeHolder: 'EMail:',
-    infoError: 'El campo email es obligatorio',
     defaultValue: '',
-    rules: {required: true},
+    rules: {required: 'El campo email es obligatorio'},
+    initialValues: {Email: ''},
     editable: true,
   },
   {
@@ -43,6 +44,7 @@ export const infoFields = [
     infoError: 'El campo fecha es obligatorio',
     defaultValue: '',
     rules: {required: false},
+    initialValues: {Date: ''},
     editable: false,
   },
 ];

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {View} from 'react-native';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
-const DateCustomPicker = ({showData}) => {
+const DateCustomPicker = ({showData, setFieldValue}) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
   const showDatePicker = () => {
