@@ -1,6 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text} from 'react-native';
-import {calculateRemainingDays, inRange} from '../../Constants/constants';
+import {
+  calculateRemainingDays,
+  inRange,
+  getUserDayBirth,
+  getUserYearBirth,
+  getUserMonBirth,
+} from '../../Constants/constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 //import styles from './styles';
 
@@ -14,8 +20,15 @@ const HoroscopeData = () => {
       try {
         AsyncStorage.getItem('userInfo').then(res => {
           const info = JSON.parse(res);
-          console.log('asd', info.Nombre);
-          setUserData(info.Nombre);
+          setUserData(info);
+
+          setRemainingDays(
+            calculateRemainingDays(
+              getUserMonBirth(info.Date),
+              getUserDayBirth(info.Date),
+              2021,
+            ),
+          );
           const currentUserDate = inRange(info.Date);
           return fetch(
             `http://horoscope-api.herokuapp.com/horoscope/today/${currentUserDate}`,
@@ -37,7 +50,7 @@ const HoroscopeData = () => {
 
   return (
     <View>
-      <Text>{`Hola ${userData}`}</Text>
+      <Text>{`Hola ${userData.Nombre}`}</Text>
       <Text>Tu horoscopo del dia dice que:</Text>
       <Text>{horoscopeInfo?.horoscope}</Text>
       <Text>{`Faltan ${remainingDays} para tu cumpleaños`}</Text>

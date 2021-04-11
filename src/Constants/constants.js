@@ -187,13 +187,27 @@ export const inRange = value => {
   }
 };
 
-function daysInMounth(mes, año) {
-  return new Date(año, mes, 0).getDate();
-}
+export const daysInMounth = (mon, year) => {
+  return new Date(year, mon, 0).getDate();
+};
 
-export const calculateRemainingDays = (birthMon, currentMon, currentYear) => {
+export const getUserDayBirth = value => {
+  return parseInt(value.split('/')[0]);
+};
+export const getUserMonBirth = value => {
+  return parseInt(value.split('/')[1]);
+};
+
+export const getUserYearBirth = value => parseInt(value.split('/')[2]);
+
+export const captureDays = () => {
+  return parseInt(formatDateFunction(Date()).split('/')[1]);
+};
+
+export const calculateRemainingDays = (birthMon, days, currentYear) => {
   let suma = 0;
-  console.log(birthMon, currentMon);
+  let currentMon = captureDays();
+  let currentDaysInMounth = daysInMounth(currentMon, currentYear) - days;
   if (currentMon < birthMon) {
     for (let i = currentMon; i < birthMon; i++) {
       suma += daysInMounth(i, currentYear);
@@ -203,5 +217,5 @@ export const calculateRemainingDays = (birthMon, currentMon, currentYear) => {
       suma += daysInMounth(i, currentYear);
     }
   }
-  return suma;
+  return suma + currentDaysInMounth;
 };

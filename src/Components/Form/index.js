@@ -32,7 +32,6 @@ const Form = ({navigation}) => {
       <ScrollView style={styles.scrollStyle}>
         <Formik
           onSubmit={values => {
-            console.log('GENDER', gender);
             const objInfo = {...values, Date: dateInfo, Gender: gender};
             if (
               validateFieldEmail(values) &&
