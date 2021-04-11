@@ -258,7 +258,6 @@ export const calculateRemainingDays = (birthMon, birthDay, currentYear) => {
   let daysIntermediateMonths = 0;
   let currentMon = captureCurrentDate(1);
   let currentDay = captureCurrentDate(0);
-  let currentDaysInMounth = daysInMounth(currentMon, currentYear) - currentDay;
 
   if (currentMon > birthMon) {
     for (let i = birthMon + 1; i < currentMon; i++) {
@@ -287,4 +286,19 @@ export const calculateRemainingDays = (birthMon, birthDay, currentYear) => {
     }
   }
   return sum;
+};
+
+export const imagesHoroscope = {
+  Aquarium: require('../Assets/Aquarium.png'),
+  Pieces: require('../Assets/Pisces.png'),
+  Aries: require('../Assets/Aries.png'),
+  Taurus: require('../Assets/Taurus.png'),
+  Gemini: require('../Assets/Gemini.png'),
+  Cancer: require('../Assets/Cancer.png'),
+  Leo: require('../Assets/Leo.png'),
+  Virgo: require('../Assets/Virgo.png'),
+  Libra: require('../Assets/Libra.png'),
+  Scorpio: require('../Assets/Scorpio.png'),
+  Sagittarius: require('../Assets/Sagittarius.png'),
+  Capricorn: require('../Assets/Capricorn.png'),
 };

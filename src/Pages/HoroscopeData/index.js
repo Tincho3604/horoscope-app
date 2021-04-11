@@ -35,16 +35,11 @@ const HoroscopeData = ({navigation}) => {
           );
           const currentUserDate = inRange(info.Date);
           return fetch(
-            `http://horoscope-api.herokuapp.com/horoscope/today/${currentUserDate}`,
+            `http://horoscope-api.herokuapp.com/horoscope/today/Aquarium`,
           )
             .then(response => response.json())
             .then(responseJson => {
               setHoroscopeInfo(responseJson);
-              setSign(
-                arraySignsInfo.filter(
-                  item => item.name === responseJson.sunsign,
-                ),
-              );
             })
             .catch(error => {
               console.log(error);
@@ -70,15 +65,22 @@ const HoroscopeData = ({navigation}) => {
       ) : (
         <View style={styles.mainHoroscopeContainer}>
           <View style={styles.horoscopeImg}>
-            <Image source={Leo} />
+            <Image source={imagesHoroscope[horoscopeInfo?.sunsign]} />
           </View>
           <View style={styles.textContainer}>
             <Text
               style={styles.userNameText}>{`Hola ${userData.Nombre}!`}</Text>
-            <Text
-              style={
-                styles.mainHoroscopetext
-              }>{`Tu horóscopo para hoy dice que: ${horoscopeInfo?.horoscope}`}</Text>
+            {horoscopeInfo?.horoscope === '[]' ? (
+              <Text
+                style={
+                  styles.errorMessage
+                }>{`No hay horóscopo disponible para ${horoscopeInfo?.sunsign}`}</Text>
+            ) : (
+              <Text
+                style={
+                  styles.mainHoroscopetext
+                }>{`Tu horóscopo para hoy dice que: ${horoscopeInfo?.horoscope}`}</Text>
+            )}
             <Text
               style={
                 styles.remainingDaystext

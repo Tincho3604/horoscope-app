@@ -45,4 +45,8 @@ export default StyleSheet.create({
   spinnerElement: {
     marginVertical: 50,
   },
+  errorMessage: {
+    fontSize: 20,
+    textAlign: 'center',
+  },
 });
