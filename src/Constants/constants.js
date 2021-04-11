@@ -1,71 +1,36 @@
 import moment from 'moment';
-import React from 'react';
 import SweetAlert from 'react-native-sweet-alert';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // OBJECTS
 export const arraySignsInfo = [
-  {
-    name: 'Aquarium',
-    ranges: ['20/1', '18/2'],
-    imgValue: require('../Assets/Aquarium.png'),
-  },
-  {
-    name: 'Pisces',
-    ranges: ['19/2', '20/3'],
-    imgValue: require('../Assets/Pisces.png'),
-  },
-  {
-    name: 'Aries',
-    ranges: ['21/3', '19/4'],
-    imgValue: require('../Assets/Aries.png'),
-  },
-  {
-    name: 'Taurus',
-    ranges: ['20/4', '21/5'],
-    imgValue: require('../Assets/Taurus.png'),
-  },
-  {
-    name: 'Gemini',
-    ranges: ['21/5', '20/6'],
-    imgValue: require('../Assets/Gemini.png'),
-  },
-  {
-    name: 'Cancer',
-    ranges: ['21/6', '22/7'],
-    imgValue: require('../Assets/Cancer.png'),
-  },
-  {
-    name: 'Leo',
-    ranges: ['23/7', '22/8'],
-    imgValue: require('../Assets/Leo.png'),
-  },
-  {
-    name: 'Virgo',
-    ranges: ['23/8', '22/9'],
-    imgValue: require('../Assets/Virgo.png'),
-  },
-  {
-    name: 'Libra',
-    ranges: ['23/9', '22/10'],
-    imgValue: require('../Assets/Libra.png'),
-  },
-  {
-    name: 'Scorpio',
-    ranges: ['23/10', '21/11'],
-    imgValue: require('../Assets/Scorpio.png'),
-  },
-  {
-    name: 'Sagittarius',
-    ranges: ['22/11', '21/12'],
-    imgValue: require('../Assets/Sagittarius.png'),
-  },
-  {
-    name: 'Capricorn',
-    ranges: ['22/12', '19/1'],
-    imgValue: require('../Assets/Capricorn.png'),
-  },
+  {name: 'Aquarium', ranges: ['20/1', '18/2']},
+  {name: 'Pisces', ranges: ['19/2', '20/3']},
+  {name: 'Aries', ranges: ['21/3', '19/4']},
+  {name: 'Taurus', ranges: ['20/4', '21/5']},
+  {name: 'Gemini', ranges: ['21/5', '20/6']},
+  {name: 'Cancer', ranges: ['21/6', '22/7']},
+  {name: 'Leo', ranges: ['23/7', '22/8']},
+  {name: 'Virgo', ranges: ['23/8', '22/9']},
+  {name: 'Libra', ranges: ['23/9', '22/10']},
+  {name: 'Scorpio', ranges: ['23/10', '21/11']},
+  {name: 'Sagittarius', ranges: ['22/11', '21/12']},
+  {name: 'Capricorn', ranges: ['22/12', '19/1']},
 ];
+export const imagesHoroscope = {
+  Aquarium: require('../Assets/Aquarium.png'),
+  Pisces: require('../Assets/Pisces.png'),
+  Aries: require('../Assets/Aries.png'),
+  Taurus: require('../Assets/Taurus.png'),
+  Gemini: require('../Assets/Gemini.png'),
+  Cancer: require('../Assets/Cancer.png'),
+  Leo: require('../Assets/Leo.png'),
+  Virgo: require('../Assets/Virgo.png'),
+  Libra: require('../Assets/Libra.png'),
+  Scorpio: require('../Assets/Scorpio.png'),
+  Sagittarius: require('../Assets/Sagittarius.png'),
+  Capricorn: require('../Assets/Capricorn.png'),
+};
 
 // STRINGS
 export const titleButton = 'Ingresar';
@@ -288,17 +253,3 @@ export const calculateRemainingDays = (birthMon, birthDay, currentYear) => {
   return sum;
 };
 
-export const imagesHoroscope = {
-  Aquarium: require('../Assets/Aquarium.png'),
-  Pieces: require('../Assets/Pisces.png'),
-  Aries: require('../Assets/Aries.png'),
-  Taurus: require('../Assets/Taurus.png'),
-  Gemini: require('../Assets/Gemini.png'),
-  Cancer: require('../Assets/Cancer.png'),
-  Leo: require('../Assets/Leo.png'),
-  Virgo: require('../Assets/Virgo.png'),
-  Libra: require('../Assets/Libra.png'),
-  Scorpio: require('../Assets/Scorpio.png'),
-  Sagittarius: require('../Assets/Sagittarius.png'),
-  Capricorn: require('../Assets/Capricorn.png'),
-};

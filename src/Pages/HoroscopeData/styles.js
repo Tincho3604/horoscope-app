@@ -6,7 +6,6 @@ export default StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 20,
     fontSize: 20,
   },
   mainHoroscopetext: {
@@ -16,10 +15,14 @@ export default StyleSheet.create({
   },
   horoscopeImg: {
     flex: 1,
+    width: '100%',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingLeft: 100,
+  },
+  eachI: {
+    width: '100%',
+    height: 70,
   },
   textContainer: {
     flex: 3,

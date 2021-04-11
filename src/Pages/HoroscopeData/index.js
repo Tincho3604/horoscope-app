@@ -35,7 +35,7 @@ const HoroscopeData = ({navigation}) => {
           );
           const currentUserDate = inRange(info.Date);
           return fetch(
-            `http://horoscope-api.herokuapp.com/horoscope/today/Aquarium`,
+            `http://horoscope-api.herokuapp.com/horoscope/today/${currentUserDate}`,
           )
             .then(response => response.json())
             .then(responseJson => {
@@ -65,7 +65,10 @@ const HoroscopeData = ({navigation}) => {
       ) : (
         <View style={styles.mainHoroscopeContainer}>
           <View style={styles.horoscopeImg}>
-            <Image source={imagesHoroscope[horoscopeInfo?.sunsign]} />
+            <Image
+              source={imagesHoroscope[horoscopeInfo?.sunsign]}
+              style={styles.eachI}
+            />
           </View>
           <View style={styles.textContainer}>
             <Text
