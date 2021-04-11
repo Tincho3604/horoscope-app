@@ -39,8 +39,8 @@ const Form = ({navigation}) => {
               validateDate(objInfo)
             ) {
               storeDataUser(objInfo);
-              sweetAlert('¡Formulario completado!', '', 'success');
               navigation.navigate('Horoscope');
+              sweetAlert('¡Formulario completado!', '', 'success');
             }
           }}
           initialValues={{Email: ''}}>

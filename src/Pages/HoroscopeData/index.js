@@ -1,27 +1,27 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Image, ActivityIndicator} from 'react-native';
 import {
   calculateRemainingDays,
   inRange,
   getUserDayBirth,
-  getUserYearBirth,
   getUserMonBirth,
 } from '../../Constants/constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-//import styles from './styles';
+import CustomButton from '../../Components/CustomButton';
+import styles from './styles';
 
-const HoroscopeData = () => {
-  const [isLoading, setIsLoading] = useState('');
+const HoroscopeData = ({navigation}) => {
+  const [sign, setSign] = useState('');
   const [remainingDays, setRemainingDays] = useState(0);
   const [userData, setUserData] = useState({});
   const [horoscopeInfo, setHoroscopeInfo] = useState();
+  const onPressHandler = () => navigation.navigate('Home');
   useEffect(() => {
     const getDataUser = () => {
       try {
         AsyncStorage.getItem('userInfo').then(res => {
           const info = JSON.parse(res);
           setUserData(info);
-
           setRemainingDays(
             calculateRemainingDays(
               getUserMonBirth(info.Date),
@@ -36,6 +36,7 @@ const HoroscopeData = () => {
             .then(response => response.json())
             .then(responseJson => {
               setHoroscopeInfo(responseJson);
+              setSign(responseJson.sunsign);
             })
             .catch(error => {
               console.log(error);
@@ -49,12 +50,43 @@ const HoroscopeData = () => {
   }, []);
 
   return (
-    <View>
-      <Text>{`Hola ${userData.Nombre}`}</Text>
-      <Text>Tu horoscopo del dia dice que:</Text>
-      <Text>{horoscopeInfo?.horoscope}</Text>
-      <Text>{`Faltan ${remainingDays} para tu cumpleaños`}</Text>
-    </View>
+    <>
+      {!horoscopeInfo ? (
+        <View style={styles.spinner}>
+          <Text style={styles.spinnerText}>Loading</Text>
+          <ActivityIndicator
+            size={120}
+            color="#558DF6"
+            style={styles.spinnerElement}
+          />
+        </View>
+      ) : (
+        <View style={styles.mainHoroscopeContainer}>
+          <View style={styles.horoscopeImg}>
+            <Image
+              //source={require(`../../Assets/Taurus`)}
+              style={styles.imgA}
+            />
+          </View>
+          <View style={styles.textContainer}>
+            <Text
+              style={styles.userNameText}>{`Hola ${userData.Nombre}!`}</Text>
+            <Text
+              style={
+                styles.mainHoroscopetext
+              }>{`Tu horóscopo para hoy dice que: ${horoscopeInfo?.horoscope}`}</Text>
+            <Text
+              style={
+                styles.remainingDaystext
+              }>{`Faltan ${remainingDays} días para tu cumpleaños`}</Text>
+          </View>
+          <CustomButton
+            titleCustomButton={'Continuar'}
+            onPressAction={onPressHandler}
+          />
+        </View>
+      )}
+    </>
   );
 };
 export default HoroscopeData;

@@ -20,7 +20,7 @@ export const arraySignsInfo = [
 
 // STRINGS
 export const titleButton = 'Ingresar';
-
+export const imagesHoroscope = ['boton_acuario'];
 export const BadgeEmpty = {
   backgroundColor: '#FFFFFF',
   width: 20,
@@ -73,9 +73,9 @@ export const sweetAlert = (title, subtitle, status) => {
     title: title,
     subTitle: subtitle,
     confirmButtonTitle: 'OK',
-    confirmButtonColor: '#000',
+    confirmButtonColor: '#FC8979',
     otherButtonTitle: 'Cancel',
-    otherButtonColor: '#dedede',
+    otherButtonColor: '#FC8979',
     style: status,
     cancellable: true,
   });
@@ -133,17 +133,8 @@ export const validateDate = value => {
 
 export const storeGender = async value => {
   try {
+    sweetAlert(`¡Has seleccionado ${value}`, '', 'success');
     await AsyncStorage.setItem('gender', value);
-  } catch (e) {
-    console.log(e);
-  }
-};
-
-export const getGender = () => {
-  try {
-    AsyncStorage.getItem('gender').then(res => {
-      return res;
-    });
   } catch (e) {
     console.log(e);
   }
@@ -201,7 +192,7 @@ export const getUserMonBirth = value => {
 export const getUserYearBirth = value => parseInt(value.split('/')[2]);
 
 export const captureDays = () => {
-  return parseInt(formatDateFunction(Date()).split('/')[1]);
+  return parseInt(formatDateFunction(new Date()).split('/')[1]);
 };
 
 export const calculateRemainingDays = (birthMon, days, currentYear) => {
