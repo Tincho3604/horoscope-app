@@ -1,26 +1,74 @@
 import moment from 'moment';
+import React from 'react';
 import SweetAlert from 'react-native-sweet-alert';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // OBJECTS
 export const arraySignsInfo = [
-  {name: 'Aquarium', ranges: ['20/1', '18/2']},
-  {name: 'Pisces', ranges: ['19/2', '20/3']},
-  {name: 'Aries', ranges: ['21/3', '19/4']},
-  {name: 'Taurus', ranges: ['20/4', '21/5']},
-  {name: 'Gemini', ranges: ['21/5', '20/6']},
-  {name: 'Cancer', ranges: ['21/6', '22/7']},
-  {name: 'Leo', ranges: ['23/7', '22/8']},
-  {name: 'Virgo', ranges: ['23/8', '22/9']},
-  {name: 'Libra', ranges: ['23/9', '22/10']},
-  {name: 'Scorpio', ranges: ['23/10', '21/11']},
-  {name: 'Sagittarius', ranges: ['22/11', '21/12']},
-  {name: 'Capricorn', ranges: ['22/12', '19/1']},
+  {
+    name: 'Aquarium',
+    ranges: ['20/1', '18/2'],
+    imgValue: require('../Assets/Aquarium.png'),
+  },
+  {
+    name: 'Pisces',
+    ranges: ['19/2', '20/3'],
+    imgValue: require('../Assets/Pisces.png'),
+  },
+  {
+    name: 'Aries',
+    ranges: ['21/3', '19/4'],
+    imgValue: require('../Assets/Aries.png'),
+  },
+  {
+    name: 'Taurus',
+    ranges: ['20/4', '21/5'],
+    imgValue: require('../Assets/Taurus.png'),
+  },
+  {
+    name: 'Gemini',
+    ranges: ['21/5', '20/6'],
+    imgValue: require('../Assets/Gemini.png'),
+  },
+  {
+    name: 'Cancer',
+    ranges: ['21/6', '22/7'],
+    imgValue: require('../Assets/Cancer.png'),
+  },
+  {
+    name: 'Leo',
+    ranges: ['23/7', '22/8'],
+    imgValue: require('../Assets/Leo.png'),
+  },
+  {
+    name: 'Virgo',
+    ranges: ['23/8', '22/9'],
+    imgValue: require('../Assets/Virgo.png'),
+  },
+  {
+    name: 'Libra',
+    ranges: ['23/9', '22/10'],
+    imgValue: require('../Assets/Libra.png'),
+  },
+  {
+    name: 'Scorpio',
+    ranges: ['23/10', '21/11'],
+    imgValue: require('../Assets/Scorpio.png'),
+  },
+  {
+    name: 'Sagittarius',
+    ranges: ['22/11', '21/12'],
+    imgValue: require('../Assets/Sagittarius.png'),
+  },
+  {
+    name: 'Capricorn',
+    ranges: ['22/12', '19/1'],
+    imgValue: require('../Assets/Capricorn.png'),
+  },
 ];
 
 // STRINGS
 export const titleButton = 'Ingresar';
-export const imagesHoroscope = ['boton_acuario'];
 export const BadgeEmpty = {
   backgroundColor: '#FFFFFF',
   width: 20,
@@ -191,22 +239,52 @@ export const getUserMonBirth = value => {
 
 export const getUserYearBirth = value => parseInt(value.split('/')[2]);
 
-export const captureDays = () => {
-  return parseInt(formatDateFunction(new Date()).split('/')[1]);
+export const captureCurrentDate = value => {
+  return parseInt(formatDateFunction(new Date()).split('/')[value]);
 };
 
-export const calculateRemainingDays = (birthMon, days, currentYear) => {
-  let suma = 0;
-  let currentMon = captureDays();
-  let currentDaysInMounth = daysInMounth(currentMon, currentYear) - days;
-  if (currentMon < birthMon) {
-    for (let i = currentMon; i < birthMon; i++) {
-      suma += daysInMounth(i, currentYear);
+export const currentRemainingDays = (current, TotalDays) => {
+  let diference = 0;
+  if (current < TotalDays) {
+    diference = TotalDays - current;
+    return diference;
+  } else {
+    return false;
+  }
+};
+
+export const calculateRemainingDays = (birthMon, birthDay, currentYear) => {
+  let sum = 0;
+  let daysIntermediateMonths = 0;
+  let currentMon = captureCurrentDate(1);
+  let currentDay = captureCurrentDate(0);
+  let currentDaysInMounth = daysInMounth(currentMon, currentYear) - currentDay;
+
+  if (currentMon > birthMon) {
+    for (let i = birthMon + 1; i < currentMon; i++) {
+      daysIntermediateMonths += daysInMounth(i, currentYear);
     }
-  } else if (currentMon > birthMon) {
-    for (let i = currentMon; i < 12 - currentMon; i++) {
-      suma += daysInMounth(i, currentYear);
+    sum =
+      365 -
+      (daysInMounth(birthMon, currentYear) -
+        birthDay +
+        daysIntermediateMonths +
+        currentDay);
+  } else if (currentMon < birthMon) {
+    for (let i = currentMon + 1; i < birthMon; i++) {
+      daysIntermediateMonths += daysInMounth(i, currentYear);
+    }
+    sum =
+      daysInMounth(currentMon, currentYear) -
+      currentDay +
+      daysIntermediateMonths +
+      birthDay;
+  } else if (currentMon === birthMon) {
+    if (currentDay < birthDay) {
+      sum = birthDay - currentDay;
+    } else if (currentDay > birthDay) {
+      sum = 365 - (currentDay - birthDay);
     }
   }
-  return suma + currentDaysInMounth;
+  return sum;
 };

@@ -1,20 +1,24 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, Image, ActivityIndicator} from 'react-native';
+import Leo from '../../Assets/Leo.png';
 import {
   calculateRemainingDays,
   inRange,
   getUserDayBirth,
   getUserMonBirth,
+  arraySignsInfo,
+  imagesHoroscope,
 } from '../../Constants/constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import CustomButton from '../../Components/CustomButton';
 import styles from './styles';
 
 const HoroscopeData = ({navigation}) => {
-  const [sign, setSign] = useState('');
+  const [sign, setSign] = useState({});
   const [remainingDays, setRemainingDays] = useState(0);
   const [userData, setUserData] = useState({});
   const [horoscopeInfo, setHoroscopeInfo] = useState();
+
   const onPressHandler = () => navigation.navigate('Home');
   useEffect(() => {
     const getDataUser = () => {
@@ -36,7 +40,11 @@ const HoroscopeData = ({navigation}) => {
             .then(response => response.json())
             .then(responseJson => {
               setHoroscopeInfo(responseJson);
-              setSign(responseJson.sunsign);
+              setSign(
+                arraySignsInfo.filter(
+                  item => item.name === responseJson.sunsign,
+                ),
+              );
             })
             .catch(error => {
               console.log(error);
@@ -48,7 +56,6 @@ const HoroscopeData = ({navigation}) => {
     };
     getDataUser();
   }, []);
-
   return (
     <>
       {!horoscopeInfo ? (
@@ -63,10 +70,7 @@ const HoroscopeData = ({navigation}) => {
       ) : (
         <View style={styles.mainHoroscopeContainer}>
           <View style={styles.horoscopeImg}>
-            <Image
-              //source={require(`../../Assets/Taurus`)}
-              style={styles.imgA}
-            />
+            <Image source={Leo} />
           </View>
           <View style={styles.textContainer}>
             <Text
