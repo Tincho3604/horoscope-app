@@ -21,6 +21,7 @@ const StepBar = ({titleStepBar, screen, style}) => {
         {ashe.map((item, index) => {
           return (
             <Badge
+              key={index}
               style={
                 index === 0
                   ? null
@@ -43,13 +44,3 @@ StepBar.propTypes = {
   style: ViewPropTypes.style,
 };
 export default StepBar;
-
-/*
-
-        <Badge
-          style={screen === 'Gender' || screen === 'Form' ? null : BadgeEmpty}
-        />
-        <Badge style={screen === 'Form' ? null : BadgeEmpty} />
-        <Badge style={BadgeEmpty} />
-
-        */

@@ -2,7 +2,6 @@ import moment from 'moment';
 import SweetAlert from 'react-native-sweet-alert';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
 // OBJECTS
 export const arraySignsInfo = [
   {name: 'Aquarium', ranges: ['20/1', '18/2']},
