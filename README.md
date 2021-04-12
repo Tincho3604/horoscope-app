@@ -34,8 +34,8 @@ Size of disk: 4,7 GB
 ![screenapp3](https://user-images.githubusercontent.com/62455807/114363643-fed41b80-9b4e-11eb-918c-45a9424906d9.png)
 
 ## Authors ✒️
-Project developed on my own
-Martin Cumpe - Author
+Project developed on my own:
+_Martin Cumpe - Author_
 
-License 📄
-All rights reserved.
+## License 📄
+_All rights reserved._
