@@ -40,7 +40,7 @@ The tools I used to create this project
 * [Formik] (https://formik.org/) - To Structure Forms.
 * [React-Native Date Picker] (https://www.npmjs.com/package/react-native-date-picker) - Modal of Dates.
 * [React-Native Sweet Alert] (https://www.npmjs.com/package/react-native-sweet-alert) - Custom Alerts.
-* [API] (https://github.com/tapaswenipathak/Horoscope-API) - An API to extract horoscope..
+* [API] (https://github.com/tapaswenipathak/Horoscope-API) - An API to extract horoscope.
 
 
 ## Authors ✒️
