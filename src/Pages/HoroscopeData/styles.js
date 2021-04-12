@@ -16,11 +16,11 @@ export default StyleSheet.create({
   horoscopeImg: {
     flex: 1,
     width: '100%',
-    flexDirection: 'column',
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  eachI: {
+  imageElement: {
     width: '100%',
     height: 70,
   },

@@ -64,7 +64,7 @@ const HoroscopeData = ({navigation}) => {
           <View style={styles.horoscopeImg}>
             <Image
               source={imagesHoroscope[horoscopeInfo?.sunsign]}
-              style={styles.eachI}
+              style={styles.imageElement}
             />
           </View>
           <View style={styles.textContainer}>
