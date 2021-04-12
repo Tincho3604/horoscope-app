@@ -2,6 +2,7 @@ import moment from 'moment';
 import SweetAlert from 'react-native-sweet-alert';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+
 // OBJECTS
 export const arraySignsInfo = [
   {name: 'Aquarium', ranges: ['20/1', '18/2']},
@@ -51,11 +52,7 @@ export const BadgeEmpty = {
   zIndex: 1,
 };
 
-export const pagesName = [
-  {name: 'Gender'},
-  {name: 'Form'},
-  {name: 'HoroscopePage'},
-];
+export const ashe = [{name: 'Gender'}, {name: 'Form'}, {name: 'HoroscopePage'}];
 
 export const infoFields = [
   {

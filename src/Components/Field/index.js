@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, TextInput, ViewPropTypes} from 'react-native';
+import {View, TextInput} from 'react-native';
 import DateCustomPicker from '../../Components/DateCustomPicker';
 import {formatDateFunction} from '../../Constants/constants';
 import {func, string, bool} from 'prop-types';
@@ -49,6 +49,5 @@ Field.propTypes = {
   editable: bool,
   onBlur: func,
   onChangeText: func,
-  values: string,
 };
 export default Field;
