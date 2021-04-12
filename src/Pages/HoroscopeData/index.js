@@ -1,12 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, Image, ActivityIndicator} from 'react-native';
-import Leo from '../../Assets/Leo.png';
 import {
   calculateRemainingDays,
   inRange,
   getUserDayBirth,
   getUserMonBirth,
-  arraySignsInfo,
   imagesHoroscope,
 } from '../../Constants/constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -14,7 +12,6 @@ import CustomButton from '../../Components/CustomButton';
 import styles from './styles';
 
 const HoroscopeData = ({navigation}) => {
-  const [sign, setSign] = useState({});
   const [remainingDays, setRemainingDays] = useState(0);
   const [userData, setUserData] = useState({});
   const [horoscopeInfo, setHoroscopeInfo] = useState();

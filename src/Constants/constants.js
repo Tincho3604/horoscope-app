@@ -51,7 +51,11 @@ export const BadgeEmpty = {
   zIndex: 1,
 };
 
-export const ashe = [{name: 'Gender'}, {name: 'Form'}, {name: 'HoroscopePage'}];
+export const arrayPages = [
+  {name: 'Gender'},
+  {name: 'Form'},
+  {name: 'HoroscopePage'},
+];
 
 export const infoFields = [
   {
