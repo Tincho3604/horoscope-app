@@ -1,4 +1,4 @@
-# Horoscope-app
+# Horoscope-app 
 Application that allows the user to obtain their horoscope of the day from their data.
 It contains a form and images to determine user information and through an API you can obtain the horoscope, 
 it also has a personalized greeting to the user from the data entered by the user, and a message with the number of days left for the date of his birthday.
@@ -33,5 +33,9 @@ Size of disk: 4,7 GB
 ![screenapp1](https://user-images.githubusercontent.com/62455807/114363641-fd0a5800-9b4e-11eb-8652-a4a2f0dde2f9.png)
 ![screenapp3](https://user-images.githubusercontent.com/62455807/114363643-fed41b80-9b4e-11eb-918c-45a9424906d9.png)
 
+## Authors ✒️
+Project developed on my own
+Martin Cumpe - Author
 
-
+License 📄
+All rights reserved.
