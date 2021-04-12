@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, ViewPropTypes, Button} from 'react-native';
+import {View, Text, ViewPropTypes} from 'react-native';
 import styles from './styles';
 import Badge from '../../Components/Badge';
 import {pagesName, BadgeEmpty} from '../../Constants/constants';

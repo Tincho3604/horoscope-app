@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
-import {Text, View, TextInput} from 'react-native';
-import {Controller} from 'react-hook-form';
+import {View, TextInput, ViewPropTypes} from 'react-native';
 import DateCustomPicker from '../../Components/DateCustomPicker';
 import {formatDateFunction} from '../../Constants/constants';
-import SweetAlert from 'react-native-sweet-alert';
+import {func, string, bool} from 'prop-types';
 import styles from './styles';
 
 const Field = ({
@@ -43,5 +42,13 @@ const Field = ({
     </>
   );
 };
-
+Field.propTypes = {
+  placeHolder: string,
+  name: string,
+  recover: func,
+  editable: bool,
+  onBlur: func,
+  onChangeText: func,
+  values: string,
+};
 export default Field;

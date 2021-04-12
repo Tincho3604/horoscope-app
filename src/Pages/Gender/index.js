@@ -6,7 +6,7 @@ import ImageGender from '../../Components/ImageGender';
 import CustomButton from '../../Components/CustomButton';
 import {sweetAlert} from '../../Constants/constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {string} from 'prop-types';
+import {func} from 'prop-types';
 
 const Gender = ({style, route, navigation}) => {
   const onPressHandler = () => {
@@ -38,6 +38,7 @@ const Gender = ({style, route, navigation}) => {
 
 Gender.proptype = {
   style: ViewPropTypes.style,
+  navigation: func,
 };
 
 export default Gender;

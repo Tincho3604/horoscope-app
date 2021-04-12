@@ -32,6 +32,12 @@ export const imagesHoroscope = {
   Capricorn: require('../Assets/Capricorn.png'),
 };
 
+export const pathGenderImages = [
+  {name: 'Masculino', path: require('../Assets/gen-1.png')},
+  {name: 'Transgénero', path: require('../Assets/gen-2.png')},
+  {name: 'Femenino', path: require('../Assets/gen-3.png')},
+];
+
 // STRINGS
 export const titleButton = 'Ingresar';
 export const BadgeEmpty = {
@@ -252,4 +258,3 @@ export const calculateRemainingDays = (birthMon, birthDay, currentYear) => {
   }
   return sum;
 };
-

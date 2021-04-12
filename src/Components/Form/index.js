@@ -3,6 +3,7 @@ import {View, ScrollView} from 'react-native';
 import styles from './styles';
 import CustomButton from '../../Components/CustomButton';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {func} from 'prop-types';
 import {
   infoFields,
   validateFieldEmail,
@@ -90,5 +91,7 @@ const Form = ({navigation}) => {
     </>
   );
 };
-
+Form.Form = {
+  navigation: func,
+};
 export default Form;
