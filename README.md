@@ -32,6 +32,17 @@ Size of disk: 4,7 GB
 ![screenapp1](https://user-images.githubusercontent.com/62455807/114363641-fd0a5800-9b4e-11eb-8652-a4a2f0dde2f9.png)
 ![screenapp3](https://user-images.githubusercontent.com/62455807/114363643-fed41b80-9b4e-11eb-918c-45a9424906d9.png)
 
+
+## Built with 🛠️
+The tools I used to create this project
+
+* [React-Native] (https://reactnative.dev/) - Runtime environment for JavaScript.
+* [Formik] (https://formik.org/) - To Structure Forms.
+* [React-Native Date Picker] (https://www.npmjs.com/package/react-native-date-picker) - Modal of Dates.
+* [React-Native Sweet Alert] (https://www.npmjs.com/package/react-native-sweet-alert) - Custom Alerts.
+* [API] (https://github.com/tapaswenipathak/Horoscope-API) - An API to extract horoscope..
+
+
 ## Authors ✒️
 _Martin Cumpe - Author_
 
