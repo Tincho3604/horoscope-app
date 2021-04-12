@@ -6,6 +6,7 @@ it also has a personalized greeting to the user from the data entered by the use
 ### Installation and Starting 🚀🔧
 ```
 git clone
+npm install
 npm start
 npx react-native run-android
 ```
