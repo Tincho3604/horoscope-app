@@ -30,7 +30,7 @@ Size of disk: 4,7 GB
 
 # Project screenshots :camera:
 ![screenapp2](https://user-images.githubusercontent.com/62455807/114363756-1d3a1700-9b4f-11eb-895f-202b35db3c2a.png)
-![screenapp1](https://user-images.githubusercontent.com/62455807/114363641-fd0a5800-9b4e-11eb-8652-a4a2f0dde2f9.png)
+![tesdt](https://user-images.githubusercontent.com/62455807/114631177-84141900-9c92-11eb-9232-2bd5cb505664.png)
 ![screenapp3](https://user-images.githubusercontent.com/62455807/114363643-fed41b80-9b4e-11eb-918c-45a9424906d9.png)
 
 
