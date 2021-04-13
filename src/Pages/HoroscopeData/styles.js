@@ -9,9 +9,18 @@ export default StyleSheet.create({
     fontSize: 20,
   },
   mainHoroscopetext: {
+    paddingHorizontal: 20,
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 17,
     fontWeight: '600',
+  },
+  textIntro: {
+    fontSize: 20,
+    paddingBottom: 40,
+    fontWeight: '600',
+    color: '#0e5090',
+    textAlign: 'center',
+    textTransform: 'uppercase',
   },
   horoscopeImg: {
     flex: 1,
@@ -31,9 +40,16 @@ export default StyleSheet.create({
   },
   userNameText: {
     fontSize: 20,
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+    letterSpacing: 5,
+    color: '#0e5090',
   },
   remainingDaystext: {
     fontSize: 18,
+    color: '#0e5090',
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
   },
   spinner: {
     flex: 1,

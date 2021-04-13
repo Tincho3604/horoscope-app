@@ -69,22 +69,27 @@ const HoroscopeData = ({navigation}) => {
           </View>
           <View style={styles.textContainer}>
             <Text
-              style={styles.userNameText}>{`Hola ${userData.Nombre}!`}</Text>
+              style={styles.userNameText}>{`¡Hola ${userData.Nombre}!`}</Text>
             {horoscopeInfo?.horoscope === '[]' ? (
               <Text
                 style={
                   styles.errorMessage
                 }>{`No hay horóscopo disponible para ${horoscopeInfo?.sunsign}`}</Text>
             ) : (
-              <Text
-                style={
-                  styles.mainHoroscopetext
-                }>{`Tu horóscopo para hoy dice que: ${horoscopeInfo?.horoscope}`}</Text>
+              <View>
+                <Text style={styles.textIntro}>
+                  Tu horóscopo para hoy dice que
+                </Text>
+                <Text
+                  style={
+                    styles.mainHoroscopetext
+                  }>{`${horoscopeInfo?.horoscope}`}</Text>
+              </View>
             )}
             <Text
               style={
                 styles.remainingDaystext
-              }>{`Faltan ${remainingDays} días para tu cumpleaños`}</Text>
+              }>{`¡Faltan ${remainingDays} días para tu cumpleaños!`}</Text>
           </View>
           <CustomButton
             titleCustomButton={'Continuar'}
