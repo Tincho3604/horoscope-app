@@ -11,8 +11,9 @@ export default StyleSheet.create({
   mainHoroscopetext: {
     paddingHorizontal: 20,
     textAlign: 'center',
-    fontSize: 17,
-    fontWeight: '600',
+    fontSize: 18,
+    fontWeight: 'bold',
+    lineHeight: 23,
   },
   textIntro: {
     fontSize: 20,
@@ -46,6 +47,7 @@ export default StyleSheet.create({
     color: '#0e5090',
   },
   remainingDaystext: {
+    marginTop: 30,
     fontSize: 18,
     color: '#0e5090',
     textTransform: 'uppercase',
